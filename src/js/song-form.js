@@ -51,6 +51,16 @@
         data: {
             name: '', singer: '', url: '', id: ''
         },
+        update(data) {
+            var song = AV.Object.createWithoutData('Song', this.data.id)
+            song.set('name', data.name)
+            song.set('singer', data.singer)
+            song.set('url', data.url)
+            return song.save().then((response)=> {
+                Object.assign(this.data, data)
+                return response
+            })
+        },
         create(data){
             var Song = AV.Object.extend('Song');
             var song = new Song();
@@ -94,23 +104,42 @@
                 this.view.render(this.model.data)
             })
         },
+        create(){
+            let needs = 'name singer url'.split(' ') // 通过空格得到数组
+            let data = {}
+            needs.map((string)=>{
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.create(data)
+            .then(()=>{
+                this.view.reset()
+                //this.model.data === 'ADDR 108'
+                let string = JSON.stringify(this.model.data)
+                let object = JSON.parse(string)
+                window.eventHub.emit('create', object)
+            })
+        },
+        update(){
+            let needs = 'name singer url'.split(' ') // 通过空格得到数组
+            let data = {}
+            needs.map((string)=>{
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.update(data)
+            .then(()=>{
+                //this.model.data === 'ADDR 108'
+                window.eventHub.emit('update', JSON.parse(JSON.stringify(this.model.data)))
+            })
+        },
         bindEvents(){
             // 事件委托
             this.view.$el.on('submit', 'form', (e)=>{
                 e.preventDefault()
-                let needs = 'name singer url'.split(' ') // 通过空格得到数组
-                let data = {}
-                needs.map((string)=>{
-                    data[string] = this.view.$el.find(`[name="${string}"]`).val()
-                })
-                this.model.create(data)
-                .then(()=>{
-                    this.view.reset()
-                    //this.model.data === 'ADDR 108'
-                    let string = JSON.stringify(this.model.data)
-                    let object = JSON.parse(string)
-                    window.eventHub.emit('create', object)
-                })
+                if(this.model.data.id) {
+                    this.update()
+                } else {
+                    this.create()
+                }
             })
         }
     }
