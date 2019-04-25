@@ -86,8 +86,7 @@ section.topbar > a::after{
 .tabs-nav >li.active{
   color: #D43C33;
 }
-.tabs-nav >li.active>.text{ 
-}
+
 .tabs-nav >li.active>.text::after{
   content: '';
   position: absolute;
@@ -115,13 +114,11 @@ section.topbar > a::after{
   display: table;
 }
 
-section.playlists{
-}
 section.playlists > ol.songs{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 12px;
 }
 section.playlists > ol.songs > li{
   width: 32.8%;
@@ -139,7 +136,7 @@ section.playlists > ol.songs > li p{
 section.playlists > ol.songs > li img{
   width: 100%;
 }
-section.songs{}
+
 section.songs > .list {
   margin-top: 18px;
 }
