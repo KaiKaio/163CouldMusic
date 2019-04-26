@@ -6,8 +6,20 @@
   100% {transform: rotate(360deg); } 
 }
 
-.page{display: flex; flex-direction: column; height: 100vh;
-	background: transparent url(http://p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
+.page{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.page::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: transparent no-repeat center;
 	background-size: cover;
 }
 
@@ -17,20 +29,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.7);
+		top: 0;
+		background-color: rgba(0,0,0,.7);
 }
 
 .disc-container{position: relative; z-index: 1}
-.disc-container .icon-wrapper{position: absolute; z-index: 1; display: flex; 
+.disc-container .icon-wrapper{
+	position: absolute; z-index: 1; display: flex; 
 	justify-content: center; align-items: center;
 }
 .disc-container .icon {width: 10vw; fill: white;}
 .disc-container .pointer{width: 24vw; position: absolute; left: 45vw; }
 .disc-container .disc{display: flex; justify-content: center; align-items: center; margin-top: 18vw; }
-.disc-container .ring{width: 72vw; } 
-.disc-container .light{width: 72vw; position: absolute; }
-.disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;  
+.disc-container .ring{
+	width: 72vw;
+} 
+.disc-container .light{
+	width: 72vw;
+	position: absolute;
+	animation: circle 20s infinite linear; 
+  animation-play-state: paused;
+}
+.disc-container .cover{
+	width: 44.5vw;
+	position: absolute;
+	border-radius: 50%;  
   animation: circle 20s infinite linear; 
   animation-play-state: paused;
 }
