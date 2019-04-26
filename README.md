@@ -10,4 +10,4 @@
 4. open http://127.0.0.1:8080/src/admin.html
 
 扫描进入：
-![二维码]("https://github.com/18898286061/163CouldMusic/blob/master/QRcode.png")
+![二维码](https://github.com/18898286061/163CouldMusic/blob/master/QRcode.png)
