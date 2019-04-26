@@ -8,3 +8,6 @@
 2. http-server -c-1
 3. node server 8888
 4. open http://127.0.0.1:8080/src/admin.html
+
+扫描进入：
+![二维码]("./QRcode.png")
