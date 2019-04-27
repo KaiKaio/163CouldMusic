@@ -1,12 +1,9 @@
 {
   let view = {
     el: '#app',
-    init(){
+    init(data){
       this.$el = $(this.el)
-    },
-    render(data){
-      let {song, status} = data
-      // this.$el.css('background-image', `url(${song.cover})`)
+      let {song} = data
       this.$el.append(`
       <style>
       .page::before{
@@ -14,12 +11,14 @@
         filter: blur(12px);
       }
       </style>`)
+    },
+    render(data){
+      let {song, status} = data
       this.$el.find('img.cover').attr('src', song.cover)
       if(this.$el.find('audio').attr('src') !== song.url){
         let audio = this.$el.find('audio').attr('src', song.url).get(0)
         audio.onended = ()=>{ window.eventHub.emit('songEnd') }
         audio.ontimeupdate = ()=> { this.showLyric(audio.currentTime) }
-
       }
       if(status === 'playing'){
         this.$el.find('.disc-container').addClass('playing')
@@ -46,7 +45,6 @@
         }
         this.$el.find('.lyric>.lines').append(p)
       })
-
     },
     showLyric(time){
       let allP = this.$el.find('.lyric>.lines>p')
@@ -87,7 +85,7 @@
         singer: '',
         url: ''
       },
-      status: 'paused'
+      status: 'paused' // paused playing
     },
     get(id){
       var query = new AV.Query('Song')
@@ -100,10 +98,10 @@
   let controller = {
     init(view, model){
       this.view = view 
-      this.view.init()
       this.model = model
       let id = this.getSongId()
       this.model.get(id).then(()=>{
+        this.view.init(this.model.data)
         this.view.render(this.model.data)
       })
       this.bindEvents()
