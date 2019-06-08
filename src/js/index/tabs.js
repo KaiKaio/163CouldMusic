@@ -17,10 +17,6 @@
         this.view.$el.on('click', '.tabs-nav > li', (e)=>{
           let $li = $(e.currentTarget)
           let tabName = $li.attr('data-tab-name')
-          console.log('$li')
-          console.log($li)
-          console.log('tabName')
-          console.log(tabName)
           $li.addClass('active')
             .siblings().removeClass('active')
           window.eventHub.emit('selectTab', tabName)

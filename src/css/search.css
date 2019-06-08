@@ -1,0 +1,89 @@
+#searchthis {
+  justify-content: space-between;
+}
+#namanyay-search-btn {
+margin-right: 4px;
+background:#D43C33;
+width: 20vw;
+color: white;
+font: 'trebuchet ms', trebuchet;
+padding:10px 20px;
+border-radius:0 5px 5px 0;
+-moz-border-radius:0 5px 5px 0;
+-webkit-border-radius:0 5px 5px 0;
+-o-border-radius:0 5px 5px 0;
+border:0 none;
+font-weight:bold;
+outline: none;
+}
+ 
+#search {
+background: #eee;
+width: 76vw;
+margin-left: 2px;
+padding:10px;
+border-radius:5px 0 0 5px;
+-moz-border-radius:5px 0 0 5px;
+-webkit-border-radius:5px 0 0 5px;
+-o-border-radius:5px 0 0 5px;
+border:0 none;
+outline: none;
+}
+
+
+/* 搜索结果 */
+section.playlists > ol.searchResult{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 12px;
+}
+section.playlists > ol.searchResult > li{
+  width: 32.8%;
+  margin: 8px 0;
+}
+section.playlists > ol.searchResult > li p{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 18px;
+  height: 36px;
+  padding: 0 6px;
+}
+section.playlists > ol.searchResult > li img{
+  width: 100%;
+}
+
+section.searchResult > .list {
+  margin-top: 18px;
+}
+section.searchResult > .list > li > h3{
+  font-size: 17px;
+}
+section.searchResult > .list > li > p{
+  font-size: 12px;
+  color: #888;
+}
+section.searchResult > .list > li{
+  position: relative;
+  margin-left: 10px;
+  padding-bottom: 6px;
+  padding-top: 5px;
+  border-bottom: 1px solid #E2E2E3;
+}
+section.searchResult > .list .playButton{
+  position: absolute;
+  right:8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section.searchResult > .list .icon-play{
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  fill: #AAA;
+}
+section.searchResult > .list .icon-sq{
+  fill: #FE672E;
+}

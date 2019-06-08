@@ -40,11 +40,6 @@ section.topbar{
   background: #D43C33;
   padding: 17px 10px;
 }
-section.topbar .logo>svg{
-  width: 142px;height: 25px;
-  vertical-align: top;
-
-}
 section.topbar > a{
   color: white;
   display: inline-block;
@@ -71,7 +66,7 @@ section.topbar > a::after{
   border-bottom: 1px solid #CCCCCC;
 }
 .tabs-nav>li{
-  width: 33.333333%;
+  width: 50%;
   text-align: center;
   line-height: 20px;
   display: flex;
@@ -97,7 +92,7 @@ section.topbar > a::after{
   width: 100%;
 }
 .tab-content{
-  margin-top: 105px;
+  margin-top: 102px;
 }
 .tab-content > li{
   display: none;
@@ -195,4 +190,14 @@ section.art .copyright{
   font-size: 12px;
   color: #888;
   transform: scale(.75);
+}
+
+.page-3 {
+  margin-top: 8px;
+}
+
+.logo {
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #fff;
 }

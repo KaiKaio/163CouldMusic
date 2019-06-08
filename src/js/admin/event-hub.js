@@ -8,7 +8,7 @@ window.eventHub = {
             if(key === eventName){ 
                 let fnList = this.events[key]
                 fnList.map((fn)=>{
-                fn.call(undefined, data)
+                    fn.call(undefined, data)
                 })
             }
         }
