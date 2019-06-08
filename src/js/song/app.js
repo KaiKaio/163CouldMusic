@@ -148,4 +148,3 @@
 
   controller.init(view, model)
 }
-
